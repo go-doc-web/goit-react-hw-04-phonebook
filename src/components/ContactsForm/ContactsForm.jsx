@@ -21,20 +21,20 @@ const ContactsForm = ({ onSubmit }) => {
     reset();
   };
 
-  const handleChangeName = ({ target }) => {
-    setName(target.value);
-  };
+  // const handleChangeName = ({ target }) => {
+  //   setName(target.value);
+  // };
 
-  const handleChangeNumber = ({ target }) => {
-    setNumber(target.number);
-  };
+  // const handleChangeNumber = ({ target }) => {
+  //   setNumber(target.number);
+  // };
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <label className={css.titleInputForm}>
         <span>Name</span>
         <input
-          onChange={handleChangeName}
+          onChange={({ target }) => setName(target.value)}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -47,7 +47,7 @@ const ContactsForm = ({ onSubmit }) => {
       <label className={css.titleInputForm}>
         <span>Number</span>
         <input
-          onChange={handleChangeNumber}
+          onChange={({ target }) => setNumber(target.value)}
           type="tel"
           name="number"
           value={number}
