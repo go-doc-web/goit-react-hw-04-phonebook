@@ -7,34 +7,33 @@ import initialState from './initialState';
 import css from './ContactsForm.module.css';
 
 const ContactsForm = ({ onSubmit }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [state, setState] = useState({ ...initialState });
+  // const [name, setName] = useState('');
+  // const [number, setNumber] = useState('');
 
   function reset() {
-    setName('');
-    setNumber('');
+    setState({ ...initialState });
   }
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ name, number });
+    onSubmit({ ...state });
     reset();
   };
 
-  // const handleChangeName = ({ target }) => {
-  //   setName(target.value);
-  // };
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setState({ ...state, [name]: value });
+  };
 
-  // const handleChangeNumber = ({ target }) => {
-  //   setNumber(target.number);
-  // };
+  const { name, number } = state;
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <label className={css.titleInputForm}>
         <span>Name</span>
         <input
-          onChange={({ target }) => setName(target.value)}
+          onChange={handleChange}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -47,7 +46,7 @@ const ContactsForm = ({ onSubmit }) => {
       <label className={css.titleInputForm}>
         <span>Number</span>
         <input
-          onChange={({ target }) => setNumber(target.value)}
+          onChange={handleChange}
           type="tel"
           name="number"
           value={number}
