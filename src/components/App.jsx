@@ -6,6 +6,7 @@ import ContactFilter from './ContactFilter/ContactFilter';
 import ContactsForm from './ContactsForm/ContactsForm';
 import ContactItem from './ContactsList/ContactItem/ContactItem';
 
+
 // import contacts from './contacts';
 import { save, load } from '../utilis/localStorage';
 
@@ -124,6 +125,8 @@ class App extends Component {
           </div>
         </div>
       </div>
+
+ 
     );
   }
 }
