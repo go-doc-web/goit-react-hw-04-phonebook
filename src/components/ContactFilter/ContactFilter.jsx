@@ -21,4 +21,5 @@ export default ContactFilter;
 
 ContactFilter.propTypes = {
   handlefilterChange: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
