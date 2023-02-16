@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
 // import { Component } from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import initialState from './initialState';
+import useForm from '../../shared/hooks/useForm';
 
 import css from './ContactsForm.module.css';
 
 const ContactsForm = ({ onSubmit }) => {
-  const [state, setState] = useState({ ...initialState });
+  const { state, handleSubmit, handleChange } = useForm({
+    initialState,
+    onSubmit,
+  });
+
+  /*   const [state, setState] = useState({ ...initialState });
   // const [name, setName] = useState('');
   // const [number, setNumber] = useState('');
 
@@ -26,7 +32,7 @@ const ContactsForm = ({ onSubmit }) => {
     setState(prevState => {
       return {...prevState, [name]:value}
     });
-  };
+  }; */
 
   const { name, number } = state;
 
