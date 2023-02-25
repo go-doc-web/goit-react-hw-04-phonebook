@@ -13,6 +13,14 @@ const ContactFilter = ({ handlefilterChange, filter }) => {
         placeholder="Find me"
         value={filter}
       />
+      <label className={css.titleFilter}>*Find contact by name</label>
+      <input
+        onChange={handlefilterChange}
+        type="text"
+        name="filter"
+        placeholder="Find me"
+        value={filter}
+      />
     </div>
   );
 };
